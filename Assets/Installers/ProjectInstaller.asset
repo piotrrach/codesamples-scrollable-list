@@ -10,6 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3d7c099227327714bbacd937ea73383b, type: 3}
-  m_Name: New Project Installer
+  m_Name: ProjectInstaller
   m_EditorClassIdentifier: 
-  _gameSessionPrefab: {fileID: 0}
+  _spriteFileViewPrefab: {fileID: 4213383993681119318, guid: f131c792a3cad134b83d2ae537761c18, type: 3}
+  _projectSettings:
+    _pngFilesDirectory: /PNGFiles~
+  _scrolListSettings:
+    ElementHeight: 300
+    Offset: 20
