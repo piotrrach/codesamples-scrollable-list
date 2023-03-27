@@ -13,16 +13,16 @@ namespace Gamesture.Assets.Scripts
         private RectTransform _viewport;
         private RectTransform _content;
         private ScrollRect _scrollRect;
-        private Func<IGuiModel, IGuiElement> createMethod;
+        private Func<IGuiModel, IScrollListElement> createMethod;
 
         private IGuiModel[] _models;
-        private List<IGuiElement> _views;
+        private List<IScrollListElement> _views;
 
         int _topIndex;
         int _bottomIndex;
         int _minimalElementsForPooling;
         
-        public PooledScrolList(Settings settings, RectTransform viewport, RectTransform content, ScrollRect scrollRect, Func<IGuiModel, IGuiElement> createMethod)
+        public PooledScrolList(Settings settings, RectTransform viewport, RectTransform content, ScrollRect scrollRect, Func<IGuiModel, IScrollListElement> createMethod)
         {
             _settings = settings;
             _viewport = viewport;
@@ -30,7 +30,7 @@ namespace Gamesture.Assets.Scripts
             _scrollRect = scrollRect;
             this.createMethod = createMethod;
 
-            _views = new List<IGuiElement>();
+            _views = new List<IScrollListElement>();
 
             _scrollRect.onValueChanged.AddListener(OnScrollMove);
         }
@@ -104,8 +104,8 @@ namespace Gamesture.Assets.Scripts
             float edgeTop = _viewport.GetEdgeHeightTop();
             float edgeBottom = _viewport.GetEdgeHeightBottom();
 
-            IGuiElement first = _views.First();
-            IGuiElement last = _views.Last();
+            IScrollListElement first = _views.First();
+            IScrollListElement last = _views.Last();
 
             if (last.RectTransform.GetEdgeHeightBottom() > edgeBottom)
             {

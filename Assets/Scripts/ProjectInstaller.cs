@@ -8,7 +8,11 @@ namespace Gamesture.Assets.Scripts
     public class ProjectInstaller : ScriptableObjectInstaller<ProjectInstaller>
     {
         [SerializeField]
+        private Transform _canvasPrefab;
+        [SerializeField]
         private GameObject _spriteFileViewPrefab;
+        [SerializeField]
+        private GameObject _scrollListWindowView;
         [SerializeField]
         private ProjectSettings _projectSettings;
         [SerializeField]
@@ -16,6 +20,8 @@ namespace Gamesture.Assets.Scripts
 
         public override void InstallBindings()
         {
+            Container.BindInterfacesAndSelfTo<Bootstrap>().AsSingle();
+
             Container.BindInstance(_projectSettings).IfNotBound();
             Container.BindInstance(_scrolListSettings).IfNotBound();
 
@@ -24,10 +30,11 @@ namespace Gamesture.Assets.Scripts
                 .WithInitialSize(8)
                 .FromComponentInNewPrefab(_spriteFileViewPrefab));
 
-            Container.Bind<SpriteFilesWindowView>()
-                .FromInstance(FindObjectOfType<SpriteFilesWindowView>())
-                .NonLazy();
-            Container.BindInterfacesAndSelfTo<SpriteFilesWindowController>().AsSingle();
+            var _mainCanvas = Instantiate(_canvasPrefab);
+
+            Container.BindFactory<ScrollListWindowView, ScrollListWindowView.Factory>()
+                .FromComponentInNewPrefab(_scrollListWindowView)
+                .UnderTransform(_mainCanvas);
         }
 
         class SpriteFileViewPool : MonoPoolableMemoryPool<SpriteFileModel, IMemoryPool, SpriteFileView> { }

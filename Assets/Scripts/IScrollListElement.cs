@@ -2,7 +2,7 @@
 
 namespace Gamesture.Assets.Scripts
 {
-    public interface IGuiElement
+    public interface IScrollListElement
     {
         RectTransform RectTransform { get; }
 

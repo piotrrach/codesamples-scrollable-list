@@ -2,11 +2,10 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
-using static Gamesture.Assets.Scripts.ProjectInstaller;
 
 namespace Gamesture.Assets.Scripts
 {
-    public class SpriteFilesWindowView : MonoBehaviour
+    public class ScrollListWindowView : MonoBehaviour
     {
         [SerializeField]
         private Button _refershButton;
@@ -37,5 +36,7 @@ namespace Gamesture.Assets.Scripts
         {
             _pooledScrolList.SetDataList(spriteFileModels);
         }
+
+        public class Factory: PlaceholderFactory<ScrollListWindowView> { }
     }
 }

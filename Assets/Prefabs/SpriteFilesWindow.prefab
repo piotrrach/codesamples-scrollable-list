@@ -580,7 +580,7 @@ GameObject:
   - component: {fileID: 1965409064240282561}
   - component: {fileID: 1965409064240281663}
   - component: {fileID: 1965409064240281662}
-  - component: {fileID: 1965409064240281660}
+  - component: {fileID: 1927249590}
   m_Layer: 5
   m_Name: SpriteFilesWindow
   m_TagString: Untagged
@@ -648,7 +648,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1965409064240281660
+--- !u!114 &1927249590
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -657,7 +657,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1965409064240282560}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6dba1f8dbb39da64d8cfbd905f0aae4b, type: 3}
+  m_Script: {fileID: 11500000, guid: c68e56566e6a15b4499cf1b326fa0d84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _refershButton: {fileID: 1965409063519517897}
