@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Gamesture.Assets.Scripts
+namespace Gamesture.Assets.Scripts.ScrollListWindow
 {
     public partial class PooledScrolList
     {
@@ -13,16 +13,16 @@ namespace Gamesture.Assets.Scripts
         private RectTransform _viewport;
         private RectTransform _content;
         private ScrollRect _scrollRect;
-        private Func<IGuiModel, IScrollListElement> createMethod;
+        private Func<IScrollListElementModel, IScrollListElementView> createMethod;
 
-        private IGuiModel[] _models;
-        private List<IScrollListElement> _views;
+        private IScrollListElementModel[] _models;
+        private List<IScrollListElementView> _views;
 
         int _topIndex;
         int _bottomIndex;
         int _minimalElementsForPooling;
         
-        public PooledScrolList(Settings settings, RectTransform viewport, RectTransform content, ScrollRect scrollRect, Func<IGuiModel, IScrollListElement> createMethod)
+        public PooledScrolList(Settings settings, RectTransform viewport, RectTransform content, ScrollRect scrollRect, Func<IScrollListElementModel, IScrollListElementView> createMethod)
         {
             _settings = settings;
             _viewport = viewport;
@@ -30,12 +30,12 @@ namespace Gamesture.Assets.Scripts
             _scrollRect = scrollRect;
             this.createMethod = createMethod;
 
-            _views = new List<IScrollListElement>();
+            _views = new List<IScrollListElementView>();
 
             _scrollRect.onValueChanged.AddListener(OnScrollMove);
         }
 
-        public void SetDataList(IGuiModel[] models)
+        public void SetDataList(IScrollListElementModel[] models)
         {
             _models = models;
             _topIndex = 0;
@@ -104,8 +104,8 @@ namespace Gamesture.Assets.Scripts
             float edgeTop = _viewport.GetEdgeHeightTop();
             float edgeBottom = _viewport.GetEdgeHeightBottom();
 
-            IScrollListElement first = _views.First();
-            IScrollListElement last = _views.Last();
+            IScrollListElementView first = _views.First();
+            IScrollListElementView last = _views.Last();
 
             if (last.RectTransform.GetEdgeHeightBottom() > edgeBottom)
             {

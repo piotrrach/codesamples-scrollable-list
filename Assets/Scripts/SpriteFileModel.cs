@@ -1,9 +1,10 @@
 ﻿using System;
 using UnityEngine;
+using Gamesture.Assets.Scripts.ScrollListWindow;
 
 namespace Gamesture.Assets.Scripts
 {
-    public class SpriteFileModel : IGuiModel
+    public class SpriteFileModel : IScrollListElementModel
     {
         public string FileName;
         public TimeSpan TimeSinceCreation;

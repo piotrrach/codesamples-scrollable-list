@@ -1,4 +1,4 @@
-using Gamesture.Assets.Scripts;
+using Gamesture.Assets.Scripts.ScrollListWindow;
 using Zenject;
 
 namespace Gamesture.Assets.Scripts

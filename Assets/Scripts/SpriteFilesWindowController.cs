@@ -1,4 +1,6 @@
-﻿namespace Gamesture.Assets.Scripts
+﻿using Gamesture.Assets.Scripts.ScrollListWindow;
+
+namespace Gamesture.Assets.Scripts
 {
     public class SpriteFilesWindowController
     {

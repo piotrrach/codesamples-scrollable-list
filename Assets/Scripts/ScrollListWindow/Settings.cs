@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Gamesture.Assets.Scripts
+namespace Gamesture.Assets.Scripts.ScrollListWindow
 {
     public partial class PooledScrolList
     {

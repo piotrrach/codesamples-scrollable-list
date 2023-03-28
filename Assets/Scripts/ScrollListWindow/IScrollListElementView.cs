@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace Gamesture.Assets.Scripts
+namespace Gamesture.Assets.Scripts.ScrollListWindow
 {
-    public interface IScrollListElement
+    public interface IScrollListElementView
     {
         RectTransform RectTransform { get; }
 

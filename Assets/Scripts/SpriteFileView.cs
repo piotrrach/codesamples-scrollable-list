@@ -1,10 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
+using Gamesture.Assets.Scripts.ScrollListWindow;
 
 namespace Gamesture.Assets.Scripts
 {
-    public class SpriteFileView : MonoBehaviour, IPoolable<SpriteFileModel, IMemoryPool>, IScrollListElement
+    public class SpriteFileView : MonoBehaviour, IPoolable<SpriteFileModel, IMemoryPool>, IScrollListElementView
     {
         [SerializeField]
         private Image _image;
@@ -32,7 +33,7 @@ namespace Gamesture.Assets.Scripts
             _pool = null;
         }
 
-        void IScrollListElement.Despawn()
+        void IScrollListElementView.Despawn()
         {
             _pool.Despawn(this);
         }

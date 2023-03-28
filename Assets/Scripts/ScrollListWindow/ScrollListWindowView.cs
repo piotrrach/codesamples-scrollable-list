@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace Gamesture.Assets.Scripts
+namespace Gamesture.Assets.Scripts.ScrollListWindow
 {
     public class ScrollListWindowView : MonoBehaviour
     {
@@ -16,16 +16,16 @@ namespace Gamesture.Assets.Scripts
         [SerializeField]
         private RectTransform _content;
 
-        public Action OnRefreshButtonPress { get; set; }
-
         private PooledScrolList _pooledScrolList;
 
+        public Action OnRefreshButtonPress { get; set; }
+
         [Inject]
-        public void Construct(SpriteFileView.Factory _spriteFileViewFactory, PooledScrolList.Settings scrollListSettings)
+        public void Construct(SpriteFileView.Factory _spriteFileViewFactory, IScrollListWindowSettings scrollListWindowsettings)
         {
             _refershButton.onClick.AddListener(() => { OnRefreshButtonPress.Invoke(); });
 
-            _pooledScrolList = new PooledScrolList(scrollListSettings,
+            _pooledScrolList = new PooledScrolList(scrollListWindowsettings.ScrollListSettings,
                                                     _viewport,
                                                     _content,
                                                     _scrollRect,
@@ -37,6 +37,6 @@ namespace Gamesture.Assets.Scripts
             _pooledScrolList.SetDataList(spriteFileModels);
         }
 
-        public class Factory: PlaceholderFactory<ScrollListWindowView> { }
+        public class Factory : PlaceholderFactory<ScrollListWindowView> { }
     }
 }
