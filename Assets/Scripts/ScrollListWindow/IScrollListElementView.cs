@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Zenject;
 
 namespace Gamesture.Assets.Scripts.ScrollListWindow
 {

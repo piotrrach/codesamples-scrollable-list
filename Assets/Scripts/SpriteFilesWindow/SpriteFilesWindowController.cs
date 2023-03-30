@@ -1,14 +1,14 @@
-﻿using Gamesture.Assets.Scripts.ScrollListWindow;
+﻿using Gamesture.Assets.Scripts.SpriteFilesWindow;
 
 namespace Gamesture.Assets.Scripts
 {
     public class SpriteFilesWindowController
     {
         private ProjectSettings _projectSettings;
-        private ScrollListWindowView _view;
+        private SpriteFilesWindowView _view;
         private PNGToSpriteFileModelLoader _pNGToSpriteFileDataLoader;
 
-        public SpriteFilesWindowController(ProjectSettings projectSettings, ScrollListWindowView scrollListWindowView)
+        public SpriteFilesWindowController(ProjectSettings projectSettings, SpriteFilesWindowView scrollListWindowView)
         {
             _projectSettings = projectSettings;
             _view = scrollListWindowView;

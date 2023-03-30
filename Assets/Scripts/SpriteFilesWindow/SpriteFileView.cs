@@ -16,7 +16,7 @@ namespace Gamesture.Assets.Scripts
 
         private IMemoryPool _pool;
 
-        [field : SerializeField]
+        [field: SerializeField]
         public RectTransform RectTransform { get; private set; }
 
         void IPoolable<SpriteFileModel, IMemoryPool>.OnSpawned(SpriteFileModel spriteFileData, IMemoryPool pool)

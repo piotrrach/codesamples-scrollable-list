@@ -1,3 +1,4 @@
+using Gamesture.Assets.Scripts.SpriteFilesWindow;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
@@ -5,7 +6,7 @@ using Zenject;
 
 namespace Gamesture.Assets.Scripts.ScrollListWindow
 {
-    public class ScrollListWindowView : MonoBehaviour
+    public class ScrollListWindowView<T1,T2> : MonoBehaviour where T1: IScrollListElementModel where T2: IScrollListElementView
     {
         [SerializeField]
         private Button _refershButton;
@@ -16,27 +17,24 @@ namespace Gamesture.Assets.Scripts.ScrollListWindow
         [SerializeField]
         private RectTransform _content;
 
-        private PooledScrolList _pooledScrolList;
+        private PooledScrollList<T1,T2> _pooledScrolList;
 
         public Action OnRefreshButtonPress { get; set; }
 
-        [Inject]
-        public void Construct(SpriteFileView.Factory _spriteFileViewFactory, IScrollListWindowSettings scrollListWindowsettings)
+        protected void Construct(Func<T1, T2> createElementMethod, PooledScrollListSettings pooledScrollListSettings)
         {
             _refershButton.onClick.AddListener(() => { OnRefreshButtonPress.Invoke(); });
 
-            _pooledScrolList = new PooledScrolList(scrollListWindowsettings.ScrollListSettings,
+            _pooledScrolList = new PooledScrollList<T1, T2>(pooledScrollListSettings,
                                                     _viewport,
                                                     _content,
                                                     _scrollRect,
-                                                     (model) => { return _spriteFileViewFactory.Create((SpriteFileModel)model); });
+                                                    createElementMethod);
         }
 
-        public void RefreshContent(SpriteFileModel[] spriteFileModels)
+        public void RefreshContent(T1[] spriteFileModels)
         {
             _pooledScrolList.SetDataList(spriteFileModels);
-        }
-
-        public class Factory : PlaceholderFactory<ScrollListWindowView> { }
+        }        
     }
 }

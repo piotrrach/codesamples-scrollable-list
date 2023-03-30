@@ -13,14 +13,11 @@ MonoBehaviour:
   m_Name: ProjectInstaller
   m_EditorClassIdentifier: 
   _canvasPrefab: {fileID: 2938916389911909870, guid: f1db534afd3792f40a476b9f961d43f9, type: 3}
-  _scrollListWindowView: {fileID: 1965409064240282560, guid: 33c50a4c0415f40449f935d936f07278, type: 3}
+  _spriteFilesWindowViewPrefab: {fileID: 1965409064240282560, guid: 33c50a4c0415f40449f935d936f07278, type: 3}
   _projectSettings:
     _pngFilesDirectory: /PNGFiles~
-  _scrolListSettings:
-    ElementHeight: 300
-    Offset: 20
   _spriteFilesWindowSettings:
     _scrollListElementPrefab: {fileID: 4213383993681119322, guid: f131c792a3cad134b83d2ae537761c18, type: 3}
-    _scrollListSettings:
+    _pooledScrollListSettings:
       ElementHeight: 300
       Offset: 20
