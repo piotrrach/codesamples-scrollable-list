@@ -1,5 +1,5 @@
-# Gamesture
-Recruitment task for Gamesture Sp. z o.o.
+# Code sample: Scrollable List
+The project is made using Zenject and Dependency Injection
 
 # Details
  - Create Unity project with one Gui Window.
